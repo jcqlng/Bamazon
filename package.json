@@ -1,0 +1,23 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "command line amazon-like store",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcqlng/Bamazon.git"
+  },
+  "author": "Jackie Geiger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcqlng/Bamazon/issues"
+  },
+  "homepage": "https://github.com/jcqlng/Bamazon#readme",
+  "dependencies": {
+    "inquirer": "^7.2.0",
+    "mysql": "^2.18.1"
+  }
+}
