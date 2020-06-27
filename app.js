@@ -4,7 +4,7 @@ var mysql      = require('mysql');
 var main = function() {
     //set up private variables
     var connection = getConnection();
-
+    
     //display the current inventory
 
     //ask for user input
@@ -34,20 +34,30 @@ var main = function() {
     inquirer.prompt(questions).then(answers => {
         
         console.log(answers);
-      });
-
-    
-}
+    });
 
     //perform the requested data operation
 
     //run main again to return to the beginning
     
+}
+
+    
+    
 
 
 // build a connection object to mysql
 var getConnection = function(){
+    var connection = mysql.createConnection({
+        host     : 'localhost',
+        user     : 'application',
+        password : 'Password123',
+        database : 'bamazon'
+      });
+       
+      connection.connect();
 
+      return connection;
 }
 
 // get data function to retrieve the current
