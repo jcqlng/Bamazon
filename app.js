@@ -6,9 +6,11 @@ var main = function() {
     var connection = getConnection();
     
     //display the current inventory
+    displayData(connection);
+
 
     //ask for user input
-    var questions = [
+    /* var questions = [
         {
             type: 'input',
             name: 'productId',
@@ -34,7 +36,7 @@ var main = function() {
     inquirer.prompt(questions).then(answers => {
         
         console.log(answers);
-    });
+    }); */
 
     //perform the requested data operation
 
@@ -62,14 +64,40 @@ var getConnection = function(){
 
 // get data function to retrieve the current
 // inventory from the database
-var getData = function(connection) {
 
-}
 
 // display function to "write" the inventory as 
 // a table to the screen.
-var displayData = function(data) {
+var displayData = function(connection) {
+
+    var query = 'SELECT * FROM bamazon.product';
     
+    
+    connection.query(query, function(error, results, fields){
+        if(error) throw error;
+        
+        var data =  {records: results, fields: fields};
+
+        console.log('------------------------------------------------------------------------------------------');
+        console.log('| Prod. Nr. | Product Name                | Department Name    | Stock     | Price       |');
+        console.log('------------------------------------------------------------------------------------------');
+        
+        for(var i = 0; i < data.records.length; i++){
+            
+            console.log('|' 
+                + formatField(data.records[i].item_id, 11) + '|' + formatField(data.records[i].product_name, 30) + '|' + formatField(data.records[i].department_name, 20) + '|' + formatField(data.records[i].stock_quantity, 11) + '|' + formatField(data.records[i].price, 12) + '|');
+            console.log('------------------------------------------------------------------------------------------');
+        }
+    });
+
+    
+    
+    
+    var fieldLengths = [11, 30, 20, 11, 12];
+    
+    // for(var i = 0; i < data.records.length; i++){
+
+    // }
 }
 
 // get the user input
@@ -113,6 +141,26 @@ var placeOrder = function(id, quantity, connection){
 // for a specified product.
 var updateInventory = function(id, quantity, connection) {
 
+}
+
+var formatField = function(value, fieldLength){
+    var formatted = [fieldLength];
+    
+    var stringified = value.toString();
+
+    for(var i = 0; i < (fieldLength); i++){
+        if(i === 0){
+            formatted[i] = ' ';
+        }else {
+            if(stringified[i-1]) {
+                formatted[i] = stringified[i-1];
+            }else{
+                formatted[i] = ' ';
+            }
+        }
+    }
+
+    return formatted.join('');
 }
 
 
