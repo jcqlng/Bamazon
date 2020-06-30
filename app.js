@@ -34,15 +34,9 @@ var main = async function(){
     } catch (err) {
       console.log(err);
     } 
-      
-    
-
-            
-    
-
 }
 
-
+// Builds a connection to sql
 const getConnection = function(){
   let connection = mysql.createConnection({
       host     : 'localhost',
@@ -56,6 +50,8 @@ const getConnection = function(){
     return connection;
 }
 
+// connects to the database and provides a promise based query method
+// code source and example: https://codeburst.io/node-js-mysql-and-async-await-6fb25b01b628
 const makeDb = function(connection) {
   //const sql = ;
     return {
@@ -69,7 +65,7 @@ const makeDb = function(connection) {
     };
 }
 
-
+// builds the grid display of products in the database
 const buildDisplay = function(data){
 
     console.log('------------------------------------------------------------------------------------------');
@@ -83,6 +79,7 @@ const buildDisplay = function(data){
 
 }
 
+// helper function to make columns equal for the field addressed.
 const formatField = function(value, fieldLength){
   var formatted = [fieldLength];
   
@@ -103,6 +100,7 @@ const formatField = function(value, fieldLength){
   return formatted.join('');
 }
 
+// place an order function to update the database.
 const placeOrder = async function(id, quantity, db){
   const getQuantity = await db.query(`SELECT stock_quantity FROM bamazon.product WHERE item_id = ${id}`);
   const newQuantity = getQuantity[0].stock_quantity - quantity;
