@@ -18,6 +18,8 @@
   "homepage": "https://github.com/jcqlng/Bamazon#readme",
   "dependencies": {
     "inquirer": "^7.2.0",
-    "mysql": "^2.18.1"
+    "inquirer-table-prompt": "^0.2.1",
+    "mysql": "^2.18.1",
+    "util": "^0.12.3"
   }
 }
