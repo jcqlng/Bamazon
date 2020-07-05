@@ -21,3 +21,6 @@ Bamazon is a console application that will show the user a current inventory of 
 ![How Many?](./screenshots/how-many.png)
 5. The system will place the order and then show the updated inventory in a new table.
 ![New Inventory](./screenshots/next-round.png)
+
+## Video of the application sequence
+![Application Sequence](./screenshots/bamazon.gif)
