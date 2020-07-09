@@ -21,7 +21,7 @@ INSERT INTO `bamazon`.`product`
 VALUES 
 ('Eyeshadow', 'cosmetics',10, 100.00), 
 ('Lipstick', 'cosmetics', 10, 100.00), 
-('PennyBoard', 'toys', 150, 150.00), 
+('PennyBoard', 'toys',product 150, 150.00), 
 ('Rollerblades', 'toys', 250, 80.00), 
 ('Duvet', 'Bedding', 1500, 50.00),
 ('Knive Set', 'Kitchen', 140, 109.99),
